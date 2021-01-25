@@ -1,70 +1,14 @@
-# Getting Started with Create React App
+### Whole description of the simulation process and the behavior of the components
+* Both payloads - OBC and Camera will be automatically connected. Both batteries will start at 30V (that is the maximum capacity of the battery). The initial current draw of the OBC payload is 2A and of the Camera, the payload is 1.5A (I wanted to make them different in order to simulate different behavior - no logic behind those numbers). I have considered that during the whole time, our Power module will have access to sunlight and it will be able to charge using its sun panels (each second 1V is added to each battery pack's Voltage). Each second when a payload is connected to its battery it will drain as many voltages as its current draw is. For example: If the Camera has a 1.5A current draw, each second the Camera pack voltages will lose 0.5V (as it is charging with 1v each second). Every 5 seconds, bоth OBC and Camera current draw will be increased by 0.5A (also, a random number). Whenever a 'Disconnect' button is clicked, the current draw of the respective payload will be set to 0 and the battery will continue charging with 1V per second. If the battery pack decreases it's voltages to 0, the payload will be automatically disconnected. Whenever a 'Connect' button is clicked, the current draw of this payload will be set to 1.5A and it will again start draining electricity from the battery. 
+* Whenever a battery's voltages decrease below or equal to 18V, a red notification will be shown in the notification panel. If the voltages increase beyond 18V it will be hidden.
+* Whenever a battery's current draw goes beyond 2.5A but below 3A a yellow notification will be shown with text - 'High current draw...'. If the current draw goes outside of these thresholds it will be hidden.
+* Whenever a battery's current draw goes beyond or equal to 3 a yellow notification will be shown with text - 'Extremely High current draw...'. If the current draw decreases below 3A it will be hidden.
+### `npm i`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
+Install the required modules.
 ### `npm start`
-
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
