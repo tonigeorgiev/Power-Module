@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Provider } from "react-redux";
+import './App.scss';
+import ParameterDisplay from './components/parameter-display/parameter-display.component.js'
+import CommandingPanel from './components/commanding-panel/commanding-panel.component'
+import NotificationPanel from './components/notifications-panel/notification-panel.component'
+import store from './store'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class PowerModule extends React.Component {
+    render() {
+          return (
+            <Provider store={store}>
+                <div class="power-module border">
+                    <div class="side">
+                        <ParameterDisplay />
+                        <CommandingPanel />
+                    </div>
+                    <NotificationPanel />
+                </div>
+            </Provider>
+          );
+      }
+  }
 
-export default App;
+  export default PowerModule;
