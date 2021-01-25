@@ -1,0 +1,27 @@
+.commanding {
+    width: 100%;
+    background-color: black;
+    padding: 5px 20px;
+    text-align: center;
+} 
+.commanding-row {
+    display: flex ;
+    width: 100%;
+    justify-content: space-between ;
+} 
+.button {
+  border-radius: 20px;
+  font-size: 32px;
+  border: 2px solid #253f5a;
+  padding: 20px;
+  font-weight: bold;
+  width: 40%;
+  height: 40px;
+}
+
+.button:hover {
+  border-color: black;
+  background-color: white;
+  color: black;
+}
+
